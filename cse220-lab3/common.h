@@ -58,9 +58,14 @@ LiteralType;
  a literal value, and a token code.  It also must have a link to 
  another token since this must be stored as a linked list.
  ***************/
+
 typedef struct
 {
     //Missing code goes here
+    LiteralType type;//define a literal type *
+    char token_string[MAX_Token_STRING_LENGTH];//I'm not sure about this,to store the literal value?
+    Token *NextToken;// a token pointer to next token
+    
 }
 Token;
 
