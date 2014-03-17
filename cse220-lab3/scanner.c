@@ -124,12 +124,15 @@ static ??? get_char(char *p)
      Write some code to set the character ch to the next character in the buffer
      */
 }
-static ??? skip_blanks(???)
+static ??? skip_blanks(char *p)
 {
     /*
      Write some code to skip past the blanks in the program and return a pointer
      to the first non blank character
      */
+     while(*p=='')
+     p++;
+     return p;
     
 }
 static ??? skip_comment(???)
