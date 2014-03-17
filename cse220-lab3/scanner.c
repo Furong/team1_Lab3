@@ -101,8 +101,19 @@ Token* get_token()
     
     return ???; //What should be returned here?
 }
-static ??? get_char(???)
+static ??? get_char(char *p)
 {
+    if(get_source_line(p)==FALSE)
+    {
+     ch=EOF;
+     return ch;
+    }
+    else
+    {
+     ch=*p;
+     p=p++;//???????
+     return ch;
+    }
     /*
      If at the end of the current line (how do you check for that?),
      we should call get source line.  If at the EOF (end of file) we should
