@@ -104,7 +104,7 @@ Token* get_token()
 }
 static ??? get_char(char *p)
 {
-    if(get_source_line(p)==FALSE)
+    if(
     {
      ch=EOF;
      return ch;
