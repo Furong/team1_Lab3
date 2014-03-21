@@ -125,8 +125,10 @@ Token* get_token()
     if(type==LETTER)
     {
     	token_string=get_word(scanptr);
+    	
     	if(!(is_reserved_word(token_string)))
     	mytoken->LiteralType=REAL_LIT;
+    	token_string=downshift_word(token_string);
     	else
     	mytoken->LiteralType=IS_RESERVED;
 
@@ -298,12 +300,13 @@ static char* get_special(char *chptr)
 static char* downshift_word(char *chptr)
 {
 	char Low[20];
+	char *tptr=chptr;
 	int i=0;
-	for(i=0;*chptr!='\0';i++)
+	for(i=0;*tptr!='\0';i++)
 	{
-		if((*chptr>='A'&&*chptr<='Z'))
-			*chptr+('a'-'A');
-		chptr++;
+		if((*tptr>='A'&&*tptr<='Z'))
+			*tptr+('a'-'A');
+		tptr++;
 	}
 	return Low;
     /*
