@@ -13,7 +13,7 @@
 #include <sys/types.h>
 #include <string.h>
 #include <time.h>
-
+#include "scanner.h"
 #define FORM_FEED_CHAR          '\f'
 #define MAX_FILE_NAME_LENGTH    32
 #define MAX_SOURCE_LINE_LENGTH  256
@@ -60,7 +60,9 @@ LiteralType;
  ***************/
 typedef struct
 {
-    //Missing code goes here
+	LiteralType type;
+    char token_string[MAX_TOKEN_STRING_LENGTH];
+    Token *NextToken;//Missing code goes here
 }
 Token;
 

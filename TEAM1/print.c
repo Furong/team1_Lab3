@@ -58,5 +58,13 @@ static void print_page_header(char source_name[], char date[])
 }
 void print_token(Token *token)
 {
-    //Missing code goes here
+	char *ident="<IDENTIFIER>";
+	char *st="<STRING>";
+	if(token->LiteralType=REAL_LIT)
+    print(">>%s  %s"ident,token->token_string);//Missing code goes here
+	if(token->LiteralType=INTEGER_LIT)
+	print(">>%s  %s"token->token_string,token->token_string)
+	if(token->LiteralType=STRING_LIT);
+	print(">>%s  %s"st,token->token_string);
+
 }

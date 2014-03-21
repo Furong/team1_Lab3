@@ -14,5 +14,6 @@
 
 void init_scanner();
 Token* get_token();
+CharCode;
 
 #endif

@@ -30,19 +30,24 @@ int main(int argc, const char * argv[])
         add_token_to_list(token_list, token);
         print_token(token);
     }
-    while (???);//What is the sentinal value that ends this loop?
+    while (strcmp(Token.token_string,'.'));//What is the sentinal value that ends this loop?
     
     quit_scanner(source_file, token_list);
     return 0;
 }
 void add_token_to_list(Token *list, Token *new_token)
 {
+	list->NextToken=new_token;
     // Add new_token to the list knowing that list is a linked list.
 }
 void quit_scanner(FILE *src_file, Token *list)
 {
-    //write code to free all of the memory for the token list
-
+	Token *p=list;
+   while(!p) //write code to free all of the memory for the token list
+   {
+	   free(p);
+	   p++;
+   }
     fclose(src_file);
 }
 FILE *init_lister(const char *name, char source_file_name[], char dte[])
