@@ -125,7 +125,10 @@ Token* get_token()
     if(type==LETTER)
     {
     	token_string=get_word(scanptr);
+    	if(!(is_reserved_word(token_string)))
     	mytoken->LiteralType=REAL_LIT;
+    	else
+    	mytoken->LiteralType=IS_RESERVED;
 
     }
     if(type== DIGIT)
@@ -307,8 +310,17 @@ static char* downshift_word(char *chptr)
      Make all of the characters in the incoming word lower case.
      */
 }
-static BOOLEAN is_reserved_word(char*)
+static BOOLEAN is_reserved_word(char*str)
 {
+	
+	int i=0;
+	int j=0;
+	for(i=0;i<9;i++)
+	{
+		for(j=0;j<10;j++)
+		if(!strcm((rw_table[i][j]).string,str))
+		return TRUE;
+	}
 
     /*
      Examine the reserved word table and determine if the function input is a reserved word.
