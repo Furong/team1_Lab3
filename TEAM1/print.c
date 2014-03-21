@@ -66,5 +66,7 @@ void print_token(Token *token)
 	print(">>%s  %s"token->token_string,token->token_string)
 	if(token->LiteralType=STRING_LIT);
 	print(">>%s  %s"st,token->token_string);
+	if(token->LiteralType=IS_RESERVED)
+	print(">>%s  %s"token->token_string,token->token_string);
 
 }
