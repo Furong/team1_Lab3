@@ -15,6 +15,7 @@
  You need to design the proper parameter list and 
  return types for functions with ???.
  ******************/
+<<<<<<< HEAD:TEAM1/scanner.c
 static char* get_char(char*);
 static char* skip_comment(char*);
 static char* skip_blanks(char*);
@@ -27,6 +28,18 @@ static BOOLEAN is_reserved_word(char*);
 static char source_buffer[MAX_SOURCE_LINE_LENGTH];
 static char* scanptr='\0';
 static BOOLEAN state=TRUE;
+=======
+static ??? get_char(???);
+static ??? skip_comment(???);
+static ??? skip_blanks(???);
+static ??? get_word(???);
+static ??? get_number(???);
+static ??? get_string(???);
+static ??? get_special(???);
+static ??? downshift_word(???);
+static BOOLEAN is_reserved_word(???);
+static char source_buffer[]
+>>>>>>> 00f4b448b4181c2f0436ae779485b68bcbb45d65:cse220-lab3/scanner.c
 
 typedef enum
 {
@@ -135,6 +148,7 @@ Token* get_token()
     
     return mytoken; //What should be returned here?
 }
+<<<<<<< HEAD:TEAM1/scanner.c
 static char* get_char(*chptr)
 {
 
@@ -148,6 +162,21 @@ static char* get_char(*chptr)
 	else
 		type=SPECIAL;
 	return chptr;
+=======
+static ??? get_char(char *p)
+{
+    if(
+    {
+     ch=EOF;
+     return ch;
+    }
+    else
+    {
+     ch=*p;
+     p=p++;//???????
+     return ch;
+    }
+>>>>>>> 00f4b448b4181c2f0436ae779485b68bcbb45d65:cse220-lab3/scanner.c
     /*
      If at the end of the current line (how do you check for that?),
      we should call get source line.  If at the EOF (end of file) we should
@@ -158,7 +187,11 @@ static char* get_char(*chptr)
      Write some code to set the character ch to the next character in the buffer
      */
 }
+<<<<<<< HEAD:TEAM1/scanner.c
 static char* skip_blanks(*chptr)
+=======
+static ??? skip_blanks(char *p)
+>>>>>>> 00f4b448b4181c2f0436ae779485b68bcbb45d65:cse220-lab3/scanner.c
 {
 	while(*chptr==" ")
 		chptr++;
@@ -167,6 +200,13 @@ static char* skip_blanks(*chptr)
      Write some code to skip past the blanks in the program and return a pointer
      to the first non blank character
      */
+<<<<<<< HEAD:TEAM1/scanner.c
+=======
+     while(*p=='')
+     p++;
+     return p;
+    
+>>>>>>> 00f4b448b4181c2f0436ae779485b68bcbb45d65:cse220-lab3/scanner.c
 }
     
 static char* skip_comment(char *chptr)
