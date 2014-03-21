@@ -49,7 +49,7 @@ TokenCode;
  *****************************/
 typedef enum
 {
-    INTEGER_LIT, REAL_LIT, STRING_LIT,
+    INTEGER_LIT, REAL_LIT, STRING_LIT,IS_RESERVED,
 }
 LiteralType;
 
