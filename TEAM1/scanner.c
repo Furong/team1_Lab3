@@ -227,10 +227,10 @@ static char* skip_comment(char *chptr)
 }
 static char* get_word(char *chptr)
 {
-	    char Letter[20];
+	   static char Letter[20];
 		int i=0;
 		for(i=0;*chptr!=' ';i++)
-		{
+		
 			Letter[i]=*chptr;
 			chptr++;
 		}
@@ -250,7 +250,7 @@ static char* get_word(char *chptr)
 }
 static char* get_number(char *chptr)
 {
-	        char Number[20];
+	        static char Number[20];
 	        int i=0;
 			for(i=0;*chptr!=' ';i++)
 			{
@@ -265,16 +265,19 @@ static char* get_number(char *chptr)
 }
 static char* get_string(char *chptr)
 {
-	            char Str[50];
-		        int i=0;
-		        Str[0]='"';
-		        chptr++;
-				for(i=1;*chptr='"';i++)
+	             static char Str[50];
+		        int i=0;     
+		        do
 				{
-					Number[i]=*chptr;
+					Str[i]=*chptr;
 					chptr++;
-				}
-				Number[i+1]='\0';
+					i++;
+				}while(*chptr!='\"');
+
+			
+				Str[i]='\"';
+				chptr++;
+				Str[i+1]='\0';
 				return Str;
     /*
      Write some code to Extract the string
@@ -282,14 +285,14 @@ static char* get_string(char *chptr)
 }
 static char* get_special(char *chptr)
 {
-	            char Spec[20];
+	           static char Spec[20];
 		        int i=0;
 				for(i=0;*chptr!=' ';i++)
 				{
 					Spec[i]=*chptr;
 					chptr++;
 				}
-				Number[i+1]='\0';
+				Spec[i+1]='\0';
 				return Spec;
 
     /*
@@ -299,19 +302,22 @@ static char* get_special(char *chptr)
 }
 static char* downshift_word(char *chptr)
 {
-	char Low[20];
+	
+	         
+	static char Low[20];
 	char *tptr=chptr;
 	int i=0;
 	for(i=0;*tptr!='\0';i++)
 	{
 		if((*tptr>='A'&&*tptr<='Z'))
-			*tptr+('a'-'A');
+			Low[i]=(*tptr)+('a'-'A');
+		else
+			Low[i]=*tptr;
+
 		tptr++;
 	}
-	return Low;
-    /*
-     Make all of the characters in the incoming word lower case.
-     */
+     //Make all of the characters in the incoming word lower case.
+     return Low;
 }
 static BOOLEAN is_reserved_word(char*str)
 {
